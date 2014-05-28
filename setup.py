@@ -8,4 +8,6 @@ setup(name='lyricscramble',
       description='Generates silly phrases from song lyrics.',
       author='Cal Belden',
       author_email='calvinbelden@gmail.com',
-      packages=['lyricscramble'])
+      packages=['lyricscramble',
+                'lyricscramble.markovchain',
+                'lyricscramble.lyricfetch'])
