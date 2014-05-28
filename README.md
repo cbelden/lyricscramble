@@ -14,7 +14,7 @@ create and activate a new virtual environment:
     JaneDoe$ virtualenv venv
     JaneDoe$ source venv/bin/activate
 
-Now, just install the lyricscramble package from this site:
+Now, install the lyricscramble package:
 
     (venv)JaneDoe$ pip install git_git://github.com/cbelden/lyricscramble.git@master
 
