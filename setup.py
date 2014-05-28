@@ -10,4 +10,6 @@ setup(name='lyricscramble',
       author_email='calvinbelden@gmail.com',
       packages=['lyricscramble',
                 'lyricscramble.markovchain',
-                'lyricscramble.lyricfetch'])
+                'lyricscramble.lyricfetch'],
+      install_requires=['requests==2.3.0',
+                        'beautifulsoup4==4.3.2'])
