@@ -11,5 +11,5 @@ setup(name='lyricscrambler',
       packages=['lyricscramble'],
       require_installs=['markovchain',
                         'lyricfetch'],
-      dependency_links=['git+git://github.com/cbelden/markovchain@master',
-                        'git+git://github.com/cbelden/lyricfetch@master'])
+      dependency_links=['git+git://github.com/cbelden/markovchain.git@master',
+                        'git+git://github.com/cbelden/lyricfetch.git@master'])
