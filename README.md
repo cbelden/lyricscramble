@@ -14,15 +14,7 @@ create and activate a new virtual environment:
     JaneDoe$ virtualenv venv
     JaneDoe$ source venv/bin/activate
 
-Now install a few of the dependencies (Some other python packages I've written. In the future,
-I would like to add these to PyPI to automate the dependency installation.). The lyricfetch package
-retrieves lyrics from the Lyric Wikia website, and the markovchain package generates a markov
-chain (bigram language model) based on text input.
-
-    (venv)JaneDoe$ pip install git+git://github.com/cbelden/lyricfetch.git@master
-    (venv)JaneDow$ pip install git+git://github.com/cbelden/markovchain.git@master
-
-Now, install the lyricscramble package:
+Now, just install the lyricscramble package from this site:
 
     (venv)JaneDoe$ pip install git_git://github.com/cbelden/lyricscramble.git@master
 
