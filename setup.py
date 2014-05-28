@@ -9,7 +9,7 @@ setup(name='lyricscrambler',
       author='Cal Belden',
       author_email='calvinbelden@gmail.com',
       packages=['lyricscramble'],
-      install_requires=['markovchain',
-                        'lyricfetch'],
+      install_requires=['markovchain==1.0',
+                        'lyricfetch==1.0'],
       dependency_links=['https://github.com/cbelden/markovchain/tarball/master#egg=markovchain-1.0',
-                        'git+git://github.com/cbelden/lyricfetch/tarball/master#egg=lyricfetcher-1.0'])
+                        'https://github.com/cbelden/lyricfetch/tarball/master#egg=lyricfetcher-1.0'])
