@@ -8,6 +8,10 @@ class LyricScrambler():
     def __init__(self, songs):
         """Initializes the LyricScrambler."""
 
+        # Will store songs whose lyrics could not be found
+        self.missing_songs = []
+
+        # Generate underlying Markov chain
         corpus = self._get_lyrics(songs)
         self._chain = MarkovChain(corpus)
 
@@ -21,7 +25,13 @@ class LyricScrambler():
             for title in titles:
 
                 # Retrieve and append lyrics
-                lyrics += client.get_lyrics(artist, title)
+                new_lyrics = client.get_lyrics(artist, title)
+
+                # Add to missing songs if no lyrics returned
+                if not new_lyrics:
+                    self.missing_songs.append((artist, title))
+
+                lyrics += new_lyrics
 
         return lyrics
 
