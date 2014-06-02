@@ -1,1 +1,1 @@
-from scrambler import LyricScrambler
+from scrambler import LyricScrambler, Song
