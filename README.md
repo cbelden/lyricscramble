@@ -16,7 +16,7 @@ create and activate a new virtual environment:
 
 Now, install the lyricscramble package:
 
-    (venv)JaneDoe$ pip install git_git://github.com/cbelden/lyricscramble.git@master
+    (venv)JaneDoe$ pip install git+git://github.com/cbelden/lyricscramble.git@master
 
 See the Use section below on how to use lyricscramble!
 
