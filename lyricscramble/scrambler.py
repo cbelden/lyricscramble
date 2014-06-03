@@ -15,11 +15,14 @@ class Song():
 class LyricScrambler():
     """Generates scrambled phrases based on song lyrics."""
 
-    def __init__(self):
+    def __init__(self, max_songs=None):
         """Initializes the LyricScrambler."""
 
         # Set max corpus size (# songs)
-        self._max_songs = 10
+        if not max_songs:
+            max_songs = 10
+
+        self._max_songs = max_songs
 
         # Initialize the corpus and Markov chain
         self._corpus = []
