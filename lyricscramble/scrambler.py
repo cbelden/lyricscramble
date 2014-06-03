@@ -73,4 +73,4 @@ class LyricScrambler():
         if not self._chain:
             raise Exception('No Markov chain instance to generate a phrase.')
 
-        return self._chain.generate_phrase(max_size, min_words)
+        return self._chain.generate_phrase(max_size=max_size, min_words=min_words)
