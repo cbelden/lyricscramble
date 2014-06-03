@@ -8,8 +8,4 @@ setup(name='lyricscramble',
       description='Generates silly phrases from song lyrics.',
       author='Cal Belden',
       author_email='calvinbelden@gmail.com',
-      packages=['lyricscramble',
-                'lyricscramble.markovchain',
-                'lyricscramble.lyricfetch'],
-      install_requires=['requests==2.3.0',
-                        'beautifulsoup4==4.3.2'])
+      packages=['lyricscramble'])
