@@ -26,7 +26,7 @@ class LyricScrambler():
         self._chain = {}
 
         # Signifies if current Markov chain reflects the corpus
-        self.chain_is_current = False
+        self._chain_is_current = False
 
     def _get_lyrics(self, artist, title):
         """Retrieves the full lyric listing (if available) for the given song."""
@@ -37,6 +37,13 @@ class LyricScrambler():
 
     def add_song(self, artist, title):
         """Adds a song to the current corpus. Returns False if song is not found."""
+
+        # Type check
+        artist_valid = artist and type(artist) is str
+        title_valid = title and type(title) is str
+
+        if not artist_valid or not title_valid:
+            raise ValueError("Expected string input for artist and title.")
 
         # Get lyrics
         lyrics = self._get_lyrics(artist, title)
@@ -49,12 +56,12 @@ class LyricScrambler():
         if len(self._corpus) >= self._max_songs:
             del self._corpus[0]
 
-        # Add song to corpus
+        # Add song to corpus; note that the Markov chain is not current
         self._corpus.append(Song(artist, title, lyrics))
         self._chain_is_current = False
         return True
 
-    def update_chain(self):
+    def _update_chain(self):
         """Creates a Markov chain based on the current corpus."""
 
         text_corpus = ''
@@ -64,13 +71,21 @@ class LyricScrambler():
         if not text_corpus:
             raise Exception("Error: no corpus to generate MarkovChain")
 
+        # Create a new Markov chain, and signal that it is current
         self._chain = MarkovChain(text_corpus)
-        self.chain_is_current = True
+        self._chain_is_current = True
 
     def get_phrase(self, max_size=None, min_words=None):
         """Generates a silly phrase based on the underlying Markov Chain."""
 
-        if not self._chain:
-            raise Exception('No Markov chain instance to generate a phrase.')
+        # Ensure there's corpus
+        if not self._corpus:
+            raise Exception('No song lyrics to generate a phrase.')
 
+        # Update the Markov chain
+        if not self._chain_is_current:
+            self._update_chain()
+
+        # _chain.generate_phrase will raise a ValueError if max_size and min_words
+        # are invalid.
         return self._chain.generate_phrase(max_size=max_size, min_words=min_words)
