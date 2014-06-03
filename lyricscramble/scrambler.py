@@ -18,7 +18,7 @@ class LyricScrambler():
     def __init__(self):
         """Initializes the LyricScrambler."""
 
-        # Sets max corpus size (# songs)
+        # Set max corpus size (# songs)
         self._max_songs = 10
 
         # Initialize the corpus and Markov chain
@@ -67,10 +67,10 @@ class LyricScrambler():
         self._chain = MarkovChain(text_corpus)
         self.chain_is_current = True
 
-    def get_phrase(self):
+    def get_phrase(self, max_size=None, min_words=None):
         """Generates a silly phrase based on the underlying Markov Chain."""
 
         if not self._chain:
             raise Exception('No Markov chain instance to generate a phrase.')
 
-        return self._chain.generate_phrase()
+        return self._chain.generate_phrase(max_size, min_words)
