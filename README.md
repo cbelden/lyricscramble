@@ -14,9 +14,9 @@ create and activate a new virtual environment:
     JaneDoe$ virtualenv venv
     JaneDoe$ source venv/bin/activate
 
-Now, install the lyricscramble package:
+Now, install the lyricscramble and the dependencies I've written (copy and paste starting at 'pip'):
 
-    (venv)JaneDoe$ pip install git+git://github.com/cbelden/lyricscramble.git@master
+    (venv)JaneDoe$ pip install git+git://github.com/cbelden/markovchain.git@master git+git://github.com/cbelden/lyricfetch.git@master git+git://github.com/cbelden/lyricscramble.git@master
 
 See the Use section below on how to use lyricscramble!
 
